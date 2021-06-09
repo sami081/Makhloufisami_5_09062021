@@ -1,0 +1,95 @@
+header {
+  display: flex;
+
+  .menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  header {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    nav {
+      background-image: linear-gradient(#79a8ff, #9356dc);
+      height: 25px;
+      display: flex;
+    }
+    .logo {
+      display: flex;
+      justify-content: center;
+    }
+    .cadies {
+      width: 80%;
+    }
+    li {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 1023px) {
+  header {
+    display: flex;
+    justify-content: space-around;
+    background-image: linear-gradient(#79a8ff, #9356dc);
+  }
+    .logo {
+      width: 35%;
+      .cadies {
+        width: 100%;
+      }
+    }
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      li {
+        display: flex;
+        align-items: center;
+        font-size: 1.5em;
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 1024px){
+header{
+  flex-direction: column;
+  .logo{
+    display: flex;
+    justify-content: center;
+}
+nav {
+  background-image: linear-gradient(#79a8ff, #9356dc);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  height: 40px;
+  li {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+}
+  }
+}
+  
+

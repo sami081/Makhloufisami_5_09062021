@@ -1,5 +1,6 @@
 header {
   display: flex;
+  
 
   .menu {
     display: flex;
@@ -11,6 +12,7 @@ header {
 }
 @media only screen and (max-width: 450px) {
   header {
+    background-color: lightgray;
     flex-direction: column;
     justify-content: space-between;
     height: 100px;

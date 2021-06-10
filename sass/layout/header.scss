@@ -27,7 +27,6 @@ header {
       width: 80%;
     }
     li {
-      list-style-type: none;
       display: flex;
       align-items: center;
       a {
@@ -38,7 +37,7 @@ header {
   }
 }
 
-@media only screen and (min-width: 451px) and (max-width: 1023px) {
+@media only screen and (min-width: 451px)  {
   header {
     display: flex;
     justify-content: space-around;
@@ -65,31 +64,6 @@ header {
       }
     }
   }
-  @media only screen and (min-width: 1024px){
-header{
-  flex-direction: column;
-  .logo{
-    display: flex;
-    justify-content: center;
-}
-nav {
-  background-image: linear-gradient(#79a8ff, #9356dc);
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  height: 40px;
-  li {
-    display: flex;
-    align-items: center;
-    font-size: 2em;
-    a {
-      text-decoration: none;
-      color: black;
-    }
-  }
-
-}
-  }
-}
+ 
   
 

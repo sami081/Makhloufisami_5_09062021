@@ -1,0 +1,122 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  background: rgba(211, 211, 211, 0.836);
+}
+header > .logo-picture {
+  width: 40%;
+}
+header > .logo-picture > .img-logo {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+  font-size: 0.7em;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 450px) {
+  .products {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-image: linear-gradient(#FF79DA, #9256dc);
+    height: 750px;
+  }
+  .products > .title-products {
+    text-align: center;
+  }
+  .products > .info-products {
+    text-align: center;
+  }
+  .products > .product-list {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .products .card-product {
+    width: 98%;
+  }
+  .products .product-image {
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+    border-radius: 0.9em 0 0 0.9em;
+  }
+  .products .link-products {
+    display: flex;
+    height: 100%;
+    background: #9356dc;
+    border-radius: 1em 1em 1em 1em;
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.3);
+  }
+  .products .product-informations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 5px;
+    justify-content: space-around;
+  }
+  .products .product-informations > .product-description {
+    font-size: 0.6em;
+    text-align: justify;
+  }
+  .products .product-informations > .name-product {
+    font-size: 1.1em;
+  }
+  .products .product-informations > .price {
+    font-weight: bolder;
+    font-size: 0.8em;
+  }
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background: lightgrey;
+}
+footer > .social {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+}
+footer > .social .social-logo {
+  width: 1em;
+}
+footer > .menu-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=styles.css.map */

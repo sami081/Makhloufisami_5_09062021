@@ -9,11 +9,15 @@ footer{
     width: 80%;
     margin: auto;
     .social-logo{
-      width:  1em;
+      width:  2em;
     }
   }
   >.menu-footer{
     display: flex;
     justify-content: space-around;
+    
+  }
+  a{
+    font-size: 1em;
   }
 }

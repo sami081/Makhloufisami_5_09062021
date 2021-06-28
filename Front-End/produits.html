@@ -1,14 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Produits</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="./JavaScript/produits.js" defer></script>
+  <link rel="stylesheet" href="sass/styles.css">
+  <script src="JavaScript/produits.js" defer></script>
 </head>
 <body>
+  <header>
+    <div class="logo-picture">
+      <img
+        src="ressources/images/logo.png"
+        class="img-logo"
+        alt="logo-orinco"
+      />
+    </div>
+    <div class="link-accueil">
+      <a href="index.html">Accueil</a>
+    </div>
+    <div class="shopping-cart">
+      <a href="panier.html">Panier</a>
+    </div>
+  </header>
+  <section class="products producte">
+    <h1 class="title-products">Les peluches d'Orinoco</h1>
+      <p class="info-products">
+        Personnalisez votre peluches
+      </p>
+
+      <div id="productCard" class="product-list">
+        <div class="bg-oniPink animate-pulse h-80"></div>
+      </div>
+
+      <template id="product">
+        <div class="card-product">
+          <a id="productLink" href="" class="link-products">
+            <img id="productImage" class="product-image" src="" alt="" />
+
+            <div class="product-informations">
+              <h2 id="productName" class="name-product"></h2>
+              <p id="productDescription" class="product-description"></p>
+              <span id="productPrice" class="price"></span>
+            </div>
+          </a>
+          <div class="shop">
+            
+            <select name="colorchoice" id="colorChoice"  class="color-choice" onchange="color()"">
+              <option value="">Selectionner votre couleurs
+              </option>
+              <option value="Brown">Marron</option>
+              <option value="Pink">Rose</option>
+              <option value="Gray">Gris</option>
+            </select>
+            <label for="productQuantity" class="quantity-label">Quantité: </label>
+            <select name="quantchoice" id="productQuantity"  class="quantity" onchange="quantity()">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+            
+            <button id="addShop" class="shop-button">Ajouter au panier</button>
+            
+          </div>
+         <!-- </form>-->
+          
+         
+          
+          
+        </div>
+      </template>
+      
+     
+
+     
+      
+    </section>
+    <footer>
+      <div class="social">
+        <a
+          aria-label=" twitter "
+          class="link-social"
+          href=" https://twitter.com/ "
+        >
+          <img
+            src=" ressources/images/twitter.jpg "
+            class="social-logo"
+            alt=" logo twitter "
+          />
+        </a>
+        <a
+          aria-label=" facebook "
+          class="link-social"
+          href=" https://www.facebook.com/ "
+        >
+          <img
+            src=" ressources/images/fb.png "
+            class="social-logo"
+            alt=" logo facebook "
+          />
+        </a>
+        <a
+          aria-label=" dribble "
+          class="link-social"
+          href=" https://dribbble.com/ "
+        >
+          <img
+            src=" ressources/images/dribble.png "
+            class="social-logo"
+            alt=" logo facebook "
+          />
+        </a>
+        <a
+          aria-label=" instagram "
+          class="link-social"
+          href=" https://www.instagram.com/ "
+        >
+          <img
+            src=" ressources/images/instagram.png "
+            class="social-logo"
+            alt=" logo facebook "
+          />
+        </a>
+      </div>
+      <ul class="menu-footer">
+        <li>
+          <a href=" mailto:contact@orinoco.com "> contact </a>
+        </li>
+        <li>
+          <a href=" mentions.html "> Mentions légales </a>
+        </li>
+      </ul>
+    </footer>
+
   
 </body>
 </html>

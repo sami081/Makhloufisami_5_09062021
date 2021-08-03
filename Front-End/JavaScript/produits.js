@@ -1,7 +1,7 @@
 let params = new URL(document.location).searchParams;
 const addShop = document.getElementById("addShop");
 
-console.log(colors);
+
 let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
@@ -47,6 +47,21 @@ function createProduct(product) {
   ).href = `produits.html?id=${product._id}`;
 
   //Display template
+
+ let colorChoiceSelect = document.getElementById("colorChoice");
+
+  product.colors.forEach(function(color){ 
+  
+          var newOption = document.createElement("option");
+          newOption.text = color.toString();//item.whateverProperty
+
+          colorChoiceSelect.add(newOption);
+      let c = newOption
+      console.log(c)
+          
+  });
+
+
   document.getElementById("productCard").appendChild(cloneElt);
 
   // comprendre ce bloc | code déclanché au clic sur ajouter au panier
@@ -54,7 +69,9 @@ function createProduct(product) {
     console.log('click sur boutton');
     event.preventDefault(); // regardfe ça fait quoi
     let selectQuantity = parseInt(document.getElementById("productQuantity").value); // voir pk ça ne se met pas à jour
-    addBasket(product, selectQuantity);
+    
+    addBasket(product, selectQuantity,);
+   
   };
 }
 
@@ -66,11 +83,13 @@ function quantity() {
   q = parseInt(document.getElementById("productQuantity").value);
   console.log(q);
 }
-// let selectColor = document.getElementById("colorChoice");
-// function color() {
-//   c = document.getElementById("colorChoice").value;
-// }
-// console.log(c)
+
+ 
+//  function color() {
+//   c = colorChoiceSelect.value;
+//   console.log(c)
+//  }
+
 //local storage----const = document.getElementById ("addShop")
 
 //addShop.onclick = () =>{
@@ -84,7 +103,6 @@ function getQuantitySelected(){
   return parseInt(document.getElementById("productQuantity").value, );
 }
 function addBasket(product, quantity) {
-
   if (cgv.checked) {
     // create let
     let basketFromLocalStorage = localStorage.getItem("myBasket");
@@ -102,7 +120,7 @@ function addBasket(product, quantity) {
       for (var i in basket){
         if (basket[i]._id === product._id) {
           updateQuantity = true;
-          basket[i].quantity = basket[i].quantity + q;
+          basket[i].quantity =  q;
         }
       }
       if (!updateQuantity) {
@@ -113,7 +131,9 @@ function addBasket(product, quantity) {
     }
   } else {
     alert("Veuillez accepter les cgv");
+    console.log(basket)
   }
+  console.log(quantity)
 }
 myTeddy = "myBasket";
 
@@ -125,3 +145,4 @@ myTeddy = "myBasket";
 //}//
 
 // stockage des quantité
+//ajouter les couleur dynamiquemen

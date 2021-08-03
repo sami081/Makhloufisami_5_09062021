@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>panier</title>
   <link rel="stylesheet" href="sass/styles.css">
-  <script src="JavaScript/panier.js" defer></script>
+ 
 </head>
 <body>
   <header>
@@ -28,18 +28,20 @@
      <table>
        <thead>
         <tr>
-          <th id="cart__article">Article</th>
+          
+          <th id="cart__article">Nom</th>
           <th id="cartColor">Couleur</th>
-          <th id="cart__quantity">Quantité</th>
+          <th id="cart__quantity"> Quantité</th>
           <th id="cart__price">Prix</th>
           <th id="cart__delete">Supprimer</th>
       </tr>
        </thead>
        <tbody id="cart__bloc">
-        <tr>
+        <tr id>
+         
           <td id="nameId"></td>
           <td id="colorId"></td>
-          <td id="quantityId"></td>
+          <td class="quantity" id="quantityId"></td>
           <td id="priceId"></td>
         </tr>
     </tbody>
@@ -52,6 +54,7 @@
      </table>
    </div>
  </section>
+
   <footer>
     <div class="social">
       <a
@@ -109,6 +112,6 @@
     </ul>
   </footer>
 
-  
+  <script src="JavaScript/panier.js"></script>
 </body>
 </html>

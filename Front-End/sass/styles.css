@@ -368,4 +368,12 @@ h3 {
   height: 100%;
 }
 
+.form-div {
+  display: none;
+}
+
+.form-active {
+  display: flex;
+}
+
 /*# sourceMappingURL=styles.css.map */

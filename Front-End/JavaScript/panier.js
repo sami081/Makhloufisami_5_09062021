@@ -1,14 +1,59 @@
+let text = document.getElementById("text")
+
+function calculBasket (){
+  let basketFromLocalStorage = JSON.parse(localStorage.getItem("myBasket"));
+  let prixTotal= [];
+  
+  for (m = 0; m<basketFromLocalStorage.length; m++){
+    let prixProduits =basketFromLocalStorage[m].price*basketFromLocalStorage[m].quantity
+    
+    prixTotal.push(prixProduits)
+    console.log(prixTotal)
+  }
+  
+  ///addtioner le tableau
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  const prixTotalProduits = prixTotal.reduce(reducer,0)/100;
+  console.log(prixTotalProduits)
+  total.textContent = prixTotalProduits + " € "
+  if (prixTotalProduits==0){text.innerHTML = `<p> Votre pannier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`}
+  }
+
+
+function updateBasket(productId, color){
+  let spanQuantityForProductId = document.getElementById(`quantity-${productId}-${color}`)
+  
+  let quantityOfProductIdFromLocalStorage = getProductFromLocalStorage(productId, color).quantity;
+  spanQuantityForProductId.innerHTML = quantityOfProductIdFromLocalStorage;
+  let priceForProductId = document.getElementById(`priceP-${productId}-${color}`)
+let priceOfProductIdFromLocalStorage = getProductFromLocalStorage(productId, color).price
+priceForProductId.innerHTML = priceOfProductIdFromLocalStorage/100*quantityOfProductIdFromLocalStorage
+calculBasket();
+}
+
+
+
+function getProductFromLocalStorage(productId, color) {
+  let basketFromLocalStorage = JSON.parse(localStorage.getItem("myBasket"));
+  let myProductFound = null;
+  return basketFromLocalStorage.find(prod => prod._id === productId && prod.color === color)
+}
+
+
+
+
+
 //let and const
 let basketFromLocalStorage = JSON.parse(localStorage.getItem("myBasket"));
 let quantityProduct = document.getElementById("quantityId");
 let nameProduct = document.getElementById("nameId");
 let priceProduct = document.getElementById("priceId");
-let colorProduct = document.getElementById("ColorId");
+let colorProduct = document.getElementById("colorId");
 let deleteProduct= document.getElementById("deleteProduct");
 let total= document.getElementById("totalCart")
 const form = document.getElementById("form")
 let totalW
-let text = document.getElementById("text")
+
 
 // total =basketFromLocalStorage[i].price/100
 // console.log(total)
@@ -16,12 +61,15 @@ let text = document.getElementById("text")
 const deleteBasket = document.getElementById("delAll");
 const validation = document.getElementById("valid")
 for (i = 0; i < basketFromLocalStorage.length; i++) {
+  let colorForId = basketFromLocalStorage[i].color.replace(/ /g,"_");
+  let colorLabel = basketFromLocalStorage[i].color.replace("_"," ");
   nameProduct.innerHTML += `<li>${basketFromLocalStorage[i].name}</li>`;
-  priceProduct.innerHTML += `<li id="priceP">${
+  colorProduct.innerHTML += `<li>${colorLabel}<li>`;
+  priceProduct.innerHTML += `<li id="priceP-${basketFromLocalStorage[i]._id}-${basketFromLocalStorage[i].color}">${
     (basketFromLocalStorage[i].price / 100) * basketFromLocalStorage[i].quantity
   }
   €</li>`;
-  quantityProduct.innerHTML += `<li><button attr.id=${basketFromLocalStorage[i]._id} class="more" >+</button><span id="quant">${basketFromLocalStorage[i].quantity}</span><button attr.id=${basketFromLocalStorage[i]._id} class="less" >-</button></li>`;
+  quantityProduct.innerHTML += `<li><button attr.id=${basketFromLocalStorage[i]._id}-${colorForId} class="more" >+</button><span id="quantity-${basketFromLocalStorage[i]._id}-${basketFromLocalStorage[i].color}">${basketFromLocalStorage[i].quantity}</span><button attr.id=${basketFromLocalStorage[i]._id}-${colorForId} class="less" >-</button></li>`;
 
  
    deleteProduct.innerHTML+=`<li><button  class="dell">x</button></li>`
@@ -32,22 +80,27 @@ for (i = 0; i < basketFromLocalStorage.length; i++) {
 
 let more = document.querySelectorAll(".more");
 more.forEach(test => {
-  let productId =  test.getAttribute('attr.id');
+  let attributesArray =  test.getAttribute('attr.id').split('-');
   test.addEventListener("click", () => {
     let monPanier = JSON.parse(localStorage.getItem("myBasket"));
-    monPanier.find(prod => prod._id === productId).quantity++;
+    let monProduit = monPanier.find(prod => prod._id === attributesArray[0] && prod.color === attributesArray[1]);
+    monProduit.quantity++;
     localStorage.setItem("myBasket",JSON.stringify(monPanier));
-    window.location.reload();
+    updateBasket(attributesArray[0], attributesArray[1]);
   }); 
 })
 let less = document.querySelectorAll(".less");
 less.forEach(test => {
-  let productId =  test.getAttribute('attr.id');
+  let attributesArray=  test.getAttribute('attr.id').split('-');
   test.addEventListener("click", () => {
     let monPanier = JSON.parse(localStorage.getItem("myBasket"));
-    monPanier.find(prod => prod._id === productId).quantity--;
+    let monProduit = monPanier.find(prod => prod._id === attributesArray[0] && prod.color ===attributesArray[1]);
+    if (monProduit.quantity > 1) {
+      monProduit.quantity--;
+    } 
     localStorage.setItem("myBasket",JSON.stringify(monPanier));
-    window.location.reload();
+    // window.location.reload();
+    updateBasket(attributesArray[0],attributesArray[1]);
   }); 
 })
 
@@ -71,7 +124,10 @@ deleteBasket.addEventListener("click",()=>{
   monPanier=[];
 
   localStorage.setItem("myBasket",JSON.stringify(monPanier));
-  window.location.reload();}else{console.log("edt")}
+  window.location.reload()
+  text.innerHTML = `<p> Votre pannier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`
+  ;}else{console.log("edt")}
+  
 
 })
 
@@ -87,32 +143,19 @@ if(totalW > 0 ){
 //// end form///
 /// montant total du panier///
 // creatuon du tableau incrementer avec une boucle for
-let prixTotal= [];
 
-for (m = 0; m<basketFromLocalStorage.length; m++){
-  let prixProduits =basketFromLocalStorage[m].price*basketFromLocalStorage[m].quantity
-  
-  prixTotal.push(prixProduits)
-  console.log(prixTotal)
-}
 
-///addtioner le tableau
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-const prixTotalProduits = prixTotal.reduce(reducer,0)/100;
-console.log(prixTotalProduits)
-total.textContent = prixTotalProduits + " € "
-if (prixTotalProduits==0){text.innerHTML = `<p> Votre pannier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`}
 ///supprimer l'article
 
 let dell = document.querySelectorAll(".dell")
 console.log(dell)
 for (d = 0; d < dell.length; d++){
   let idProduct = basketFromLocalStorage[d]._id;
-  
+  let colorForProduct = basketFromLocalStorage[d].color
   dell[d].addEventListener("click",(event)=>{
     event.preventDefault();
     console.log(idProduct)
-basketFromLocalStorage = basketFromLocalStorage.filter(el => el._id !== idProduct)
+basketFromLocalStorage = basketFromLocalStorage.filter((el => el._id !== idProduct) && (el => el.color !== colorForProduct))
 console.log(basketFromLocalStorage)
 localStorage.setItem("myBasket",JSON.stringify(basketFromLocalStorage));
 window.location.reload()
@@ -120,12 +163,13 @@ window.location.reload()
   })
 }
 
-/ form////
+// form////
 let firstName
 let lastName
 let adress
 let email
 let city
+let numberCommand=Math.round(Math.random()*10000000)
 const lastNames = document.getElementById("lastName")
 const firstNames = document.getElementById("firstName")
 const address = document.getElementById("adress")
@@ -162,12 +206,18 @@ form.addEventListener("submit",(e)=>{
       email,
       adress,
       city,
+      numberCommand,
     }
     localStorage.setItem("contact",JSON.stringify(contact));
-  console.log(contact)}
+    let monPanier = JSON.parse(localStorage.getItem("myBasket"));
+    monPanier=[];
+  
+    localStorage.setItem("myBasket",JSON.stringify(monPanier));
+    window.location.reload()
+ window.open("./confirmation.html")}
+
     else{console.log("non")}
   }
 )
 
-
-
+calculBasket();

@@ -1,7 +1,7 @@
 let params = new URL(document.location).searchParams;
 const addShop = document.getElementById("addShop");
 
-
+let colorProduct;
 let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
@@ -58,8 +58,16 @@ function createProduct(product) {
           colorChoiceSelect.add(newOption);
       let c = newOption
       console.log(c)
-          
-  });
+      colorChoiceSelect.addEventListener("click",(e)=>{
+        colorProduct = e.target.value
+        console.log(colorProduct)    
+  })
+      }) 
+         
+  
+// colorChoiceSelect.addEventListener("click",(e)=>{
+//   console.log(e.target.value)
+// })
 
 
   document.getElementById("productCard").appendChild(cloneElt);
@@ -69,8 +77,8 @@ function createProduct(product) {
     console.log('click sur boutton');
     event.preventDefault(); // regardfe ça fait quoi
     let selectQuantity = parseInt(document.getElementById("productQuantity").value); // voir pk ça ne se met pas à jour
-    
-    addBasket(product, selectQuantity,);
+    let colorSelected =  document.getElementById("colorChoice").value;
+    addBasket(product, selectQuantity, colorSelected);
    
   };
 }
@@ -80,7 +88,7 @@ function createProduct(product) {
 //}
 let selectQuantity = document.getElementById("productQuantity");
 function quantity() {
-  q = parseInt(document.getElementById("productQuantity").value);
+ let q = parseInt(document.getElementById("productQuantity").value);
   console.log(q);
 }
 
@@ -102,25 +110,31 @@ function quantity() {
 function getQuantitySelected(){
   return parseInt(document.getElementById("productQuantity").value, );
 }
-function addBasket(product, quantity) {
+function addBasket(product, quantity, selectedColor) {
   if (cgv.checked) {
-    // create let
+    
     let basketFromLocalStorage = localStorage.getItem("myBasket");
+   
     product.quantity = quantity;
+    product.color = selectedColor.replace(/ /g,"_");
+    Reflect.deleteProperty(product, 'colors');
     //si tableau let vide crée un tableau et injecter le produits
     if (!basketFromLocalStorage) {
       let newBasket = [];
       newBasket.push(product);
+      console.log("oui")
       localStorage.setItem("myBasket", JSON.stringify(newBasket));
+     
+      
 
       //sinon ajouter a la suite
     } else {
       let basket = JSON.parse(basketFromLocalStorage);
       var updateQuantity = false;
       for (var i in basket){
-        if (basket[i]._id === product._id) {
+        if (basket[i]._id === product._id && basket[i].color === selectedColor) {
           updateQuantity = true;
-          basket[i].quantity =  q;
+          basket[i].quantity =  quantity;
         }
       }
       if (!updateQuantity) {
@@ -131,9 +145,9 @@ function addBasket(product, quantity) {
     }
   } else {
     alert("Veuillez accepter les cgv");
-    console.log(basket)
+      
   }
-  console.log(quantity)
+  console.log(colorProduct)
 }
 myTeddy = "myBasket";
 

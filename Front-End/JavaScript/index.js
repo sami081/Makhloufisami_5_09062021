@@ -11,7 +11,7 @@ async function getProducts() {
 }
 
 function fillProducts(products) {
-  console.log(products);
+  
   document.getElementById('productsList').innerHTML = ''
 
   products.forEach(element => {

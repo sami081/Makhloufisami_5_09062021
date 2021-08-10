@@ -1,0 +1,39 @@
+.array-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  table{
+    border: 2px black solid;
+    border-collapse: collapse;
+    >thead{
+      border: 2px black solid;
+      >tr{
+        border: 2px black solid;
+        >th{
+          border: 2px black solid;
+        }
+      }
+    }
+  }
+}
+.image-basket{
+  width: 60px;
+  height: 40px;
+}
+h3{
+  font-size: 1em !important;
+}
+.div-image{
+  width: 60px;
+  height: 40px;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+.form-div{
+  display: none;
+}
+.form-active{
+  display: flex;
+}

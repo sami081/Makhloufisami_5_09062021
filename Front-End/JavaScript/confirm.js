@@ -12,7 +12,7 @@ const confirm = document.getElementById("confirm");
 
 confirm.innerHTML =
 ` <h2> Votre commande n° ${numberCommand} a bien éte validé</h2>
-<p> Elle vous sera livré sous 5 jours ouvrés au nom de : ${lastName} ${firstName} a l'adresse suivante : ${adress} ${city}<br> Votre facture vous a été envoyé a l'email suivant : ${email}
+<p> Elle vous sera livré sous 5 jours ouvrés <br> au nom de : ${lastName} ${firstName}<br> a l'adresse suivante :<br> ${adress} ${city}<br> Votre facture vous a été envoyé a l'email suivant : ${email}
 
 
 

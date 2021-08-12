@@ -1,145 +1,180 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>panier</title>
-  <link rel="stylesheet" href="sass/styles.css">
- 
-</head>
-<body>
-  <header>
-    <div class="logo-picture">
-      <img
-        src="ressources/images/logo.png"
-        class="img-logo"
-        alt="logo-orinco"
-      />
-    </div>
-    <div class="link-accueil">
-      <a href="index.html">Accueil</a>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>panier</title>
+    <link rel="stylesheet" href="sass/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo-picture">
+        <img
+          src="ressources/images/logo.png"
+          class="img-logo"
+          alt="logo-orinco"
+        />
+      </div>
+      <div class="link-accueil">
+        <a href="index.html">Accueil</a>
+      </div>
+    </header>
 
- <section class="array-section">
-   <h1> Votre commande Orinoco</h1>
-   <div class="form">
-     <table>
-       <thead>
-        <tr>
-          
-          <th id="cart__article">Nom</th>
-          <th id="cartColor">Couleur</th>
-          <th id="cart__quantity"> Quantité</th>
-          <th id="cart__price">Prix</th>
-          <th id="cart__delete">Supprimer</th>
-      </tr>
-       </thead>
-       <tbody id="cart__bloc">
-        <tr id>
-         
-          <td id="nameId"></td>
-          <td id="colorId"></td>
-          <td class="quantity" id="quantityId"></td>
-          <td id="priceId"></td>
-          <td id ="deleteProduct"></td>
-          
-        </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-          <th colspan="4">Montant total de votre panier :</th>
-          <th id="totalCart"></th>
-      </tr>
-  </tfoot>
-     </table>
-     <button id="delAll"> supprimer mon pannier</button>
-     <button id="valid">Valider</button>
-   </div>
-   <div id="text"></div>
- </section>
- 
- <div id="form" class="form-div">
-  <h2> Veuillez remplir ce formulaire</h2><form action="">
-    <label for="lastName">Nom</label>
-    <input id="lastName" type="text" class="form-name" placeholder="Nom requis" required>
-    
-    <label for="firstName">prenom</label>
-    <input id="firstName"type="text" class="form-prenom" placeholder="Prenom requis" required>
-  
-    <label for="email">Email</label>
-    <input id="email" class="form-control" type="email" placeholder="Email requis" required="">
-   
-    <label for="adress">adresse</label>
-    <input id="adress"  class="form-adress" type="text" placeholder="adresse requis"required>
-    
-    <label for="city">ville</label>
-  <input id="city" type="text" class="form-control" placeholder="ville requis" required>
-  <a href="./confirmation.html">
-  <input type="submit" value="Valider ma commande" class="validation-commande" id="valCom">
-   </a>
-</form>`
- </div>
+    <section class="array-section">
+      <h1>Votre commande Orinoco</h1>
+      <div class="form">
+        <table>
+          <thead>
+            <tr>
+              <th id="cart__article">Nom</th>
+              <th id="cartColor">Couleur</th>
+              <th id="cart__quantity">Quantité</th>
+              <th id="cart__price">Prix</th>
+              <th id="cart__delete">Supprimer</th>
+            </tr>
+          </thead>
+          <tbody id="cart__bloc">
+            <tr id>
+              <td id="nameId" class="contenair"></td>
+              <td id="colorId" class="contenair"></td>
+              <td class="quantity contenair" id="quantityId"></td>
+              <td id="priceId" class="contenair"></td>
+              <td id="deleteProduct" class="contenair"></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="4">Montant total de votre panier :</th>
+              <th id="totalCart"></th>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="button">
+          <button id="delAll">supprimer mon panier</button>
+          <button id="valid">Valider</button>
+        </div>
+      </div>
+      <div id="text" class="text-information"></div>
+<section class='information-form'>
+      <div id="form" class="form-div">
+        <h2>Mes informations</h2>
+        <form  class="form-informations"action="">
+          <label for="lastName" >Nom</label>
+          <input
+            id="lastName"
+            type="text"
+            class="box"
+            placeholder="Nom requis"
+            required
+          />
 
-  <footer>
-    <div class="social">
-      <a
-        aria-label=" twitter "
-        class="link-social"
-        href=" https://twitter.com/ "
-      >
-        <img
-          src=" ressources/images/twitter.jpg "
-          class="social-logo"
-          alt=" logo twitter "
-        />
-      </a>
-      <a
-        aria-label=" facebook "
-        class="link-social"
-        href=" https://www.facebook.com/ "
-      >
-        <img
-          src=" ressources/images/fb.png "
-          class="social-logo"
-          alt=" logo facebook "
-        />
-      </a>
-      <a
-        aria-label=" dribble "
-        class="link-social"
-        href=" https://dribbble.com/ "
-      >
-        <img
-          src=" ressources/images/dribble.png "
-          class="social-logo"
-          alt=" logo facebook "
-        />
-      </a>
-      <a
-        aria-label=" instagram "
-        class="link-social"
-        href=" https://www.instagram.com/ "
-      >
-        <img
-          src=" ressources/images/instagram.png "
-          class="social-logo"
-          alt=" logo facebook "
-        />
-      </a>
-    </div>
-    <ul class="menu-footer">
-      <li>
-        <a href=" mailto:contact@orinoco.com "> contact </a>
-      </li>
-      <li>
-        <a href=" mentions.html "> Mentions légales </a>
-      </li>
-    </ul>
-   
-  </footer>
+          <label for="firstName">prenom</label>
+          <input
+            id="firstName"
+            type="text"
+            class="box"
+            placeholder="Prenom requis"
+            required
+          />
 
-  <script src="JavaScript/panier.js"></script>
-</body>
+          <label for="email">Email</label>
+          <input
+            id="email"
+            class="box"
+            type="email"
+            placeholder="Email requis"
+            required=""
+          />
+
+          <label for="adress">adresse</label>
+          <input
+            id="adress"
+            class="box"
+            type="text"
+            placeholder="adresse requis"
+            required
+          />
+
+          <label for="city">ville</label>
+          <input
+            id="city"
+            type="text"
+            class="box"
+            placeholder="ville requis"
+            required
+          />
+          <a href="./confirmation.html">
+            <input
+              type="submit"
+              value="Valider ma commande"
+              class="validation-commande"
+              id="valCom"
+            />
+          </a>
+        </form>
+        `
+      </div>
+      </section>
+    </section>
+
+    <footer>
+      <div class="social">
+        <a
+          aria-label=" twitter "
+          class="link-social"
+          href=" https://twitter.com/ "
+        >
+          <img
+            src=" ressources/images/twitter.jpg "
+            class="social-logo"
+            alt=" logo twitter "
+          />
+        </a>
+        <a
+          aria-label=" facebook "
+          class="link-social"
+          href=" https://www.facebook.com/ "
+        >
+          <img
+            src=" ressources/images/fb.png "
+            class="social-logo"
+            alt=" logo facebook "
+          />
+        </a>
+        <a
+          aria-label=" dribble "
+          class="link-social"
+          href=" https://dribbble.com/ "
+        >
+          <img
+            src=" ressources/images/dribble.png "
+            class="social-logo"
+            alt=" logo facebook "
+          />
+        </a>
+        <a
+          aria-label=" instagram "
+          class="link-social"
+          href=" https://www.instagram.com/ "
+        >
+          <img
+            src=" ressources/images/instagram.png "
+            class="social-logo"
+            alt=" logo facebook "
+          />
+        </a>
+      </div>
+      <ul class="menu-footer">
+        <li>
+          <a href=" mailto:contact@orinoco.com "> contact </a>
+        </li>
+        <li>
+          <a href=" mentions.html "> Mentions légales </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="JavaScript/panier.js"></script>
+  </body>
 </html>

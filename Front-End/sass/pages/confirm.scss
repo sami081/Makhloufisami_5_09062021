@@ -1,0 +1,31 @@
+.confirmation{
+  background-image: linear-gradient(#FF79DA, #9256dc);
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  >p{
+    text-align: center;
+  }
+}
+@media only screen and(max-width:450px){
+  .confirmation{
+    >h2{
+      font-size: 0.9em;
+    }
+    >p{
+font-size: 0.8em;
+    }
+  }
+}
+@media only screen and(min-width:451px){
+  .confirmation{
+    >h2{
+      font-size: 1em;
+    }
+    >p{
+      font-size: 0.9em;
+    }
+  }
+}

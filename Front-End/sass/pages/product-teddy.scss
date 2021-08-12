@@ -1,0 +1,131 @@
+//all support
+.product-teddy{
+height: auto !important;
+padding-bottom: 20px;
+padding-top: 20px;
+display: flex;
+flex-direction: column;
+align-content: center;
+background-image: linear-gradient(#FF79DA, #9256dc);
+height: 750px;
+>.title-products{
+  text-align: center;
+}
+>.info-products {
+  text-align: center;
+}
+>.product-list {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15px;
+  >.card-product {
+    width: 98%;
+    height: 18%;
+    >.link-products {
+      display: flex;
+      height: 100%;
+      background: lightgrey;
+      border-radius: 1em 1em 1em 1em;
+      box-shadow: 0 0.3rem 1rem rgb(0 0 0 / 30%);
+      >.product-image {
+        // height: 100%;
+        // width: 50%;
+        object-fit: cover;
+        
+    }
+    >.product-informations {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: black;
+      padding: 5px;
+      justify-content: space-around;
+     
+    
+  >.price {
+    font-weight: bolder;
+   
+}
+  }
+  }
+}
+}
+>.shop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  height: 150px;
+  margin-top: 20px;
+}
+>.bought{
+  margin-top: 15px;
+    text-align: center;
+}
+}
+//end
+
+//mobile
+@media only screen and (max-width: 450px){
+  .product-image{
+    height: 100%;
+    width: 50%;
+    border-radius: 0.9em 0 0 0.9em;
+}
+.name-product {
+  font-size: 1.5em;
+}
+.product-description {
+  font-size: 0.9em;
+  text-align: justify;
+}
+.price{
+  font-size: 0.9em;
+}
+  }
+
+@media only screen and(min-width: 451px) and (max-width:1023px){
+  .product-teddy{
+  .link-products{
+    flex-direction: column;
+  }
+.product-image{
+  border-radius: 1em 1em 0 0;
+}
+.name-product {
+  font-size: 2em;
+}
+.product-description {
+  font-size: 1.5em;
+  text-align: center;
+}
+.price{
+  font-size: 1.8em;
+}
+}
+}
+
+@media only screen and(min-width: 1024px){
+  .product-teddy{
+.product-image{
+  width: 50%;
+  border-radius: 0 1em 1em 0;
+}
+.link-products{
+  flex-direction: row-reverse;
+}
+.product-description{
+  text-align: center;
+  font-size: 2em;
+}
+.name-product{
+  font-size: 2.5em
+}
+.price{
+  font-size: 2.3em;
+}
+}
+}

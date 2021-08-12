@@ -5,9 +5,8 @@ let colorProduct;
 let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
-//let bought =  document.getElementById("buy");
+const buy = document.getElementById("buy");
 
-//bought = '';
 
 // Methode called at startup
 (async () => {
@@ -65,17 +64,16 @@ function createProduct(product) {
       }) 
          
   
-// colorChoiceSelect.addEventListener("click",(e)=>{
-//   console.log(e.target.value)
-// })
+
 
 
   document.getElementById("productCard").appendChild(cloneElt);
 
-  // comprendre ce bloc | code déclanché au clic sur ajouter au panier
+
   document.getElementById("addShop").onclick = (event) => {
+  
     console.log('click sur boutton');
-    event.preventDefault(); // regardfe ça fait quoi
+    event.preventDefault();
     let selectQuantity = parseInt(document.getElementById("productQuantity").value); // voir pk ça ne se met pas à jour
     let colorSelected =  document.getElementById("colorChoice").value;
     addBasket(product, selectQuantity, colorSelected);
@@ -83,9 +81,7 @@ function createProduct(product) {
   };
 }
 
-//function test(){
-// console.log("selectQuantity.value");
-//}
+
 let selectQuantity = document.getElementById("productQuantity");
 function quantity() {
  let q = parseInt(document.getElementById("productQuantity").value);
@@ -93,18 +89,7 @@ function quantity() {
 }
 
  
-//  function color() {
-//   c = colorChoiceSelect.value;
-//   console.log(c)
-//  }
 
-//local storage----const = document.getElementById ("addShop")
-
-//addShop.onclick = () =>{
-//localStorage.setItem("productName","nom.value")
-//};
-
-//let myteddy = "";
 //function added products in local storage
 
 function getQuantitySelected(){
@@ -143,6 +128,7 @@ function addBasket(product, quantity, selectedColor) {
       localStorage.setItem("myBasket", JSON.stringify(basket));
       console.log(basket[0].name);
     }
+    buy.innerHTML = `<p>Continuez ses achats?<a  class="answer-yes" href ="./index.html">Oui</a> <a class= "answer-no" href = "./panier.html">non</a></p>`
   } else {
     alert("Veuillez accepter les cgv");
       
@@ -151,12 +137,3 @@ function addBasket(product, quantity, selectedColor) {
 }
 myTeddy = "myBasket";
 
-//   bought= localStorage.getItem('myBasket',JSON.stringify(product));
-// console.log(bought);
-// //addShop.onclick = () =>{
-//   //localStorage.getItem("myPurchase", JSON.stringify(product))
-
-//}//
-
-// stockage des quantité
-//ajouter les couleur dynamiquemen

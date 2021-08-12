@@ -8,7 +8,7 @@
       flex-wrap: wrap;
       justify-content: space-around;
       align-content: space-around;
-      height: 100px;
+      height: 150px;
       margin-top: 20px;
       .color-choice{
         border-radius: 2em;
@@ -76,7 +76,7 @@
 }
       }
     .card-product{
-      width: 95% !important;
+      // width: 95% !important;
     }
   }
 
@@ -102,3 +102,9 @@
 .color-choice{
   border-radius: 2em;
   height: 2rem;}
+  @media only screen and (min-width:451px){
+    .shop-button{
+      margin-top: 15px;
+    font-size: 1em;
+    }
+  }

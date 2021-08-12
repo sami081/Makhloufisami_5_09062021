@@ -16,7 +16,7 @@ function calculBasket (){
   const prixTotalProduits = prixTotal.reduce(reducer,0)/100;
   console.log(prixTotalProduits)
   total.textContent = prixTotalProduits + " € "
-  if (prixTotalProduits==0){text.innerHTML = `<p> Votre pannier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`}
+  if (prixTotalProduits==0){text.innerHTML = `<p> Votre panier est vide<br><button class="return"> <a href="./index.html">Retour a l'accueil</a></button></p>`}
   }
 
 

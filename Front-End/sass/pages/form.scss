@@ -1,0 +1,52 @@
+@media only screen and (max-width: 450px){
+.form-class{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+  height: 100%;
+  >.contenair-color{
+    justify-content: center;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    >.color{
+      margin-right: 10px;
+    }
+  }
+  >.contenair-quantity{
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >.quantity-label{
+      margin-right: 10px;
+    }
+    >.quantity{
+      border-radius: 2em;
+      
+    }
+  }
+  >.contenair-check{
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+}
+.answer-yes{
+  margin-left: 10px;
+  font-size: 1em;
+}
+.answer-no{
+  margin-left: 10px;
+  font-size: 1em;
+}
+.bought{
+  text-align: center;
+}

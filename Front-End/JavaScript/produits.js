@@ -1,6 +1,6 @@
 let params = new URL(document.location).searchParams;
 const addShop = document.getElementById("addShop");
-
+const buy = document.getElementById("buy")
 let colorProduct;
 let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
@@ -71,9 +71,13 @@ function createProduct(product) {
 
 
   document.getElementById("addShop").onclick = (event) => {
+<<<<<<< HEAD
   
     console.log('click sur boutton');
     event.preventDefault();
+=======
+    event.preventDefault(); // regardfe ça fait quoi
+>>>>>>> develop
     let selectQuantity = parseInt(document.getElementById("productQuantity").value); // voir pk ça ne se met pas à jour
     let colorSelected =  document.getElementById("colorChoice").value;
     addBasket(product, selectQuantity, colorSelected);
@@ -128,7 +132,12 @@ function addBasket(product, quantity, selectedColor) {
       localStorage.setItem("myBasket", JSON.stringify(basket));
       console.log(basket[0].name);
     }
+<<<<<<< HEAD
     buy.innerHTML = `<p>Continuez ses achats?<a  class="answer-yes" href ="./index.html">Oui</a> <a class= "answer-no" href = "./panier.html">non</a></p>`
+=======
+    buy.innerHTML=`<div class="question"<p> Voulez-vous continuez vos achats?</p></div><div class=answer><a href="./index.html"> Oui</a> <a href="./panier.html"> Non </a></div>`;
+
+>>>>>>> develop
   } else {
     alert("Veuillez accepter les cgv");
       

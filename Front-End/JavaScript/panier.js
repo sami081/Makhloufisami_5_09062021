@@ -16,7 +16,7 @@ function calculBasket (){
   const prixTotalProduits = prixTotal.reduce(reducer,0)/100;
   console.log(prixTotalProduits)
   total.textContent = prixTotalProduits + " € "
-  if (prixTotalProduits==0){text.innerHTML = `<p> Votre pannier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`}
+  if (prixTotalProduits==0){text.innerHTML = `<p> Votre panier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`}
   }
 
 
@@ -27,7 +27,7 @@ function updateBasket(productId, color){
   spanQuantityForProductId.innerHTML = quantityOfProductIdFromLocalStorage;
   let priceForProductId = document.getElementById(`priceP-${productId}-${color}`)
 let priceOfProductIdFromLocalStorage = getProductFromLocalStorage(productId, color).price
-priceForProductId.innerHTML = priceOfProductIdFromLocalStorage/100*quantityOfProductIdFromLocalStorage
+priceForProductId.innerHTML = priceOfProductIdFromLocalStorage/100*quantityOfProductIdFromLocalStorage + " € "
 calculBasket();
 }
 
@@ -63,19 +63,18 @@ const validation = document.getElementById("valid")
 for (i = 0; i < basketFromLocalStorage.length; i++) {
   let colorForId = basketFromLocalStorage[i].color.replace(/ /g,"_");
   let colorLabel = basketFromLocalStorage[i].color.replace("_"," ");
-  nameProduct.innerHTML += `<li>${basketFromLocalStorage[i].name}</li>`;
-  colorProduct.innerHTML += `<li>${colorLabel}<li>`;
+  nameProduct.innerHTML += `<li >${basketFromLocalStorage[i].name}</li>`;
+  colorProduct.innerHTML += `<li ">${colorLabel}<li>`;
   priceProduct.innerHTML += `<li id="priceP-${basketFromLocalStorage[i]._id}-${basketFromLocalStorage[i].color}">${
     (basketFromLocalStorage[i].price / 100) * basketFromLocalStorage[i].quantity
-  }
-  €</li>`;
-  quantityProduct.innerHTML += `<li><button attr.id=${basketFromLocalStorage[i]._id}-${colorForId} class="more" >+</button><span id="quantity-${basketFromLocalStorage[i]._id}-${basketFromLocalStorage[i].color}">${basketFromLocalStorage[i].quantity}</span><button attr.id=${basketFromLocalStorage[i]._id}-${colorForId} class="less" >-</button></li>`;
+  } €</li>`;
+  quantityProduct.innerHTML += `<li ><button attr.id=${basketFromLocalStorage[i]._id}-${colorForId} class="more size" >+</button><span id="quantity-${basketFromLocalStorage[i]._id}-${basketFromLocalStorage[i].color}">${basketFromLocalStorage[i].quantity}</span><button attr.id=${basketFromLocalStorage[i]._id}-${colorForId} class="less size" >-</button></li>`;
 
  
-   deleteProduct.innerHTML+=`<li><button  class="dell">x</button></li>`
+   deleteProduct.innerHTML+=`<li><button  class="dell size ">x</button></li>`
    totalW =(basketFromLocalStorage[i].price / 100) * basketFromLocalStorage[i].quantity
    console.log(priceProduct)
-   total.textContent= totalW +"€"
+   total.textContent= totalW 
 }
 
 let more = document.querySelectorAll(".more");
@@ -119,13 +118,13 @@ less.forEach(test => {
 //     })  })
 deleteBasket.addEventListener("click",()=>{
   
-  if (confirm("etesvoussur")){
+  if (confirm("Voulez vous vraiment supprimer votre panier?")){
   let monPanier = JSON.parse(localStorage.getItem("myBasket"));
   monPanier=[];
 
   localStorage.setItem("myBasket",JSON.stringify(monPanier));
   window.location.reload()
-  text.innerHTML = `<p> Votre pannier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`
+  text.innerHTML = `<p> Votre panier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`
   ;}else{console.log("edt")}
   
 

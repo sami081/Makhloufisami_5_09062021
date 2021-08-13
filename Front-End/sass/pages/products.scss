@@ -61,14 +61,26 @@
     
   }
 }
-
+@media only screen and(min-width: 451px) and (max-width: 581px){
+  .products{
+    height: 1000px;
+  }
+}
+@media only screen and(min-width: 581px) and (max-width: 1024px){
+  .products{
+    height: 1000px;
+    .card-product{
+      width: 45%;
+    }
+  }
+}
 @media only screen and(min-width: 451px) and (max-width: 1024px){
   .products{
     background-image: linear-gradient(#FF79DA, #9256dc);
     display: flex;
     flex-direction: column;
     align-items:  center;
-    height: 950px;
+    // height: 1450px;
     >.product-list{
       height: 90%;
       display: flex;
@@ -83,13 +95,13 @@
     background: lightgrey;
     border-radius: 1em 1em 1em 1em;
     box-shadow: 0 0.3rem 1rem rgb(0 0 0 / 30%);
-    max-height: 235px;
+    max-height: 285px;
   }
   .product-image{
     width: 100%;
     border-radius: 0.9em 0.9em 0 0;
     /* object-fit: cover; */
-    height: 60%;
+    height: 55%;
 
   }
   .link-products{
@@ -103,14 +115,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    >.name-product{
+      font-size: 1.1em;
+    }
     >.product-description{
       text-align: justify;
-      font-size: 1.1em;
+      font-size: 0.8em;
       padding: 5px;
     }
     >.price{
       font-weight: bolder;
       margin-bottom: 5px;
+      font-size: 0.8em;
     }
   }
 }
@@ -120,7 +136,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;  
-    height: 650px;
+    height: 950px;
     background-image: linear-gradient(#FF79DA, #9256dc);
     justify-content: space-around;
     >.info-products{
@@ -151,16 +167,29 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 5px;
+            
+            >.name-product{
+              font-size: 1.1em;
+            }
             >.product-description{
-              text-align: justify;
+              text-align: center;
+              font-size: 0.8em;
             }
             >.price{
               font-weight: bolder;
+              font-size: 0.8em;
             }
           }
         }
       }
     }
+  }
+}
+@media only screen and (min-width:2000px){
+  .card-product{
+    height: 350px !important;
+  }
+  .product-image{
+    height: 80% !important;
   }
 }

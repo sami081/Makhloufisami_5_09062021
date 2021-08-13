@@ -1,10 +1,18 @@
 .array-section{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 600px;
+  justify-content: space-around;
+  background-image: linear-gradient(#FF79DA, #9256dc);
+ 
+  h1{
+    text-align: center;
+  }
   table{
     border: 2px black solid;
     border-collapse: collapse;
+    width: 100%;
+    background-color: lightgray;
     >thead{
       border: 2px black solid;
       >tr{
@@ -36,4 +44,86 @@ h3{
 }
 .form-active{
   display: flex;
+  height: 45%;
+  flex-direction: column;
+  >h2{
+    text-align: center;
+  }
+}
+.button{
+  display: flex;
+    justify-content: space-around;
+    margin: 15px;
+}
+.box{
+  text-align: center;;
+}
+tr{
+  font-size: 0.8em;
+  li{
+text-align: center;
+  }
+  .contenair{
+    border: 2px solid black
+  }
+ 
+}
+.text-information{
+  text-align: center;
+  >p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.return{
+  margin-top: 15px;
+  border-radius: 5rem;
+  height: 3rem;
+  width: 12em;
+  background-image: linear-gradient(#79ceff, #9256dc);
+  border: none;
+  color: white;
+  box-shadow: 0 0.3rem 1rem rgb(0 0 0 / 30%);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+>a {
+  color: white;
+  font-size: 1em;
+}
+}
+@media only screen and (max-width:450px){
+  .array-section{
+  height: 600px;
+    justify-content: space-around;
+  }
+ 
+  .form{  
+    display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+.information-form{
+ 
+}
+.form-informations{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  >a{
+    margin-top: 15px;
+  }
+}
+}
+.form-informations{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  >a{
+    margin-top: 15px;
+  }
 }

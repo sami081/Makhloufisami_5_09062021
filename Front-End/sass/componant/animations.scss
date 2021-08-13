@@ -1,0 +1,8 @@
+.animations-button:hover {
+  transform: scale(1.2);
+  // -webkit-transition: transform 1s ease-out, background 0.5s ease;
+}
+.animations-button{
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}

@@ -1,5 +1,17 @@
+//let and const
+let basketFromLocalStorage = JSON.parse(localStorage.getItem("myBasket"));
+let quantityProduct = document.getElementById("quantityId");
+let nameProduct = document.getElementById("nameId");
+let priceProduct = document.getElementById("priceId");
+let colorProduct = document.getElementById("colorId");
+let deleteProduct= document.getElementById("deleteProduct");
+let total= document.getElementById("totalCart")
+const form = document.getElementById("form")
+let totalW
+
 let text = document.getElementById("text")
 
+//function calcul du panier
 function calculBasket (){
   let basketFromLocalStorage = JSON.parse(localStorage.getItem("myBasket"));
   let prixTotal= [];
@@ -23,7 +35,7 @@ function calculBasket (){
 >>>>>>> develop
   }
 
-
+//function ..?
 function updateBasket(productId, color){
   let spanQuantityForProductId = document.getElementById(`quantity-${productId}-${color}`)
   
@@ -36,7 +48,7 @@ calculBasket();
 }
 
 
-
+//function localStorage?
 function getProductFromLocalStorage(productId, color) {
   let basketFromLocalStorage = JSON.parse(localStorage.getItem("myBasket"));
   let myProductFound = null;
@@ -47,21 +59,11 @@ function getProductFromLocalStorage(productId, color) {
 
 
 
-//let and const
-let basketFromLocalStorage = JSON.parse(localStorage.getItem("myBasket"));
-let quantityProduct = document.getElementById("quantityId");
-let nameProduct = document.getElementById("nameId");
-let priceProduct = document.getElementById("priceId");
-let colorProduct = document.getElementById("colorId");
-let deleteProduct= document.getElementById("deleteProduct");
-let total= document.getElementById("totalCart")
-const form = document.getElementById("form")
-let totalW
 
 
-// total =basketFromLocalStorage[i].price/100
-// console.log(total)
 
+
+//affiche le panier en fonction du produits
 const deleteBasket = document.getElementById("delAll");
 const validation = document.getElementById("valid")
 for (i = 0; i < basketFromLocalStorage.length; i++) {
@@ -80,7 +82,7 @@ for (i = 0; i < basketFromLocalStorage.length; i++) {
    console.log(priceProduct)
    total.textContent= totalW 
 }
-
+//modif quantité au panier (+1)ou (-1)
 let more = document.querySelectorAll(".more");
 more.forEach(test => {
   let attributesArray =  test.getAttribute('attr.id').split('-');
@@ -108,18 +110,7 @@ less.forEach(test => {
 })
 
 
-// let deleti = document.querySelectorAll(".deleti");
-// deleti.forEach(del =>{
-//    let productId =  del.getAttribute('attr.id')
-//   del.addEventListener("click",()=>{
-//     let monPanier = JSON.parse(localStorage.getItem("myBasket"));
-//     monPanier=[];
-// //     for (i = 0; i < monPanier.length; i++){
-    
-// // console.log(monPanier)
-//     localStorage.setItem("myBasket",JSON.stringify(monPanier));
-//     window.location.reload();
-//     })  })
+//suppression du panier
 deleteBasket.addEventListener("click",()=>{
   
   if (confirm("Voulez vous vraiment supprimer votre panier?")){
@@ -136,16 +127,14 @@ deleteBasket.addEventListener("click",()=>{
 
 
 
-/// creation formulaire
+/// apparation du formulaire formulaire
 validation.addEventListener("click", ()=>{
 if(totalW > 0 ){
  form.classList.toggle("form-active")
 }else{console.log("edt")}
 })
 
-//// end form///
-/// montant total du panier///
-// creatuon du tableau incrementer avec une boucle for
+
 
 
 ///supprimer l'article
@@ -210,6 +199,8 @@ form.addEventListener("submit",(e)=>{
       adress,
       city,
       numberCommand,
+      totalW
+     
     }
     localStorage.setItem("contact",JSON.stringify(contact));
     let monPanier = JSON.parse(localStorage.getItem("myBasket"));

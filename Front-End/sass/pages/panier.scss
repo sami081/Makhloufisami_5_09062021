@@ -22,6 +22,7 @@
         border: 2px black solid;
         >th{
           border: 2px black solid;
+         
         }
       }
     }
@@ -62,9 +63,10 @@ h3{
   text-align: center;;
 }
 tr{
-  font-size: 0.8em;
+ 
   li{
 text-align: center;
+
   }
   .contenair{
     border: 2px solid black
@@ -110,9 +112,7 @@ text-align: center;
   justify-content: space-around;
   
 }
-.information-form{
- 
-}
+
 .form-informations{
   display: flex;
   flex-direction: column;
@@ -130,3 +130,12 @@ text-align: center;
     margin-top: 15px;
   }
 }
+@media only screen and (min-width:450px){
+th{
+  font-size: 1.8em;
+}
+tr{
+  li{
+  font-size: 1.4em;
+}
+}}

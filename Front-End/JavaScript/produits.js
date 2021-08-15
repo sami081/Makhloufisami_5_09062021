@@ -5,8 +5,11 @@ let colorProduct;
 let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
+<<<<<<< HEAD
 const buy = document.getElementById("buy");
 
+=======
+>>>>>>> develop
 
 // Methode called at startup
 (async () => {
@@ -19,7 +22,7 @@ async function getProduct() {
     .then((response) => response.json())
     .then((data) => data);
 }
-
+// creation de l'ourson selectionné 
 function fillProduct(product) {
   document.getElementById("productCard").innerHTML = "";
 
@@ -46,7 +49,7 @@ function createProduct(product) {
   ).href = `produits.html?id=${product._id}`;
 
   //Display template
-
+//selectionde la couleur
  let colorChoiceSelect = document.getElementById("colorChoice");
 
   product.colors.forEach(function(color){ 
@@ -56,10 +59,10 @@ function createProduct(product) {
 
           colorChoiceSelect.add(newOption);
       let c = newOption
-      console.log(c)
+     
       colorChoiceSelect.addEventListener("click",(e)=>{
         colorProduct = e.target.value
-        console.log(colorProduct)    
+         
   })
       }) 
          
@@ -94,6 +97,10 @@ function quantity() {
 
  
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 //function added products in local storage
 
 function getQuantitySelected(){

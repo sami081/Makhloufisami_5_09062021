@@ -5,9 +5,6 @@ let colorProduct;
 let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
-//let bought =  document.getElementById("buy");
-
-//bought = '';
 
 // Methode called at startup
 (async () => {
@@ -20,7 +17,7 @@ async function getProduct() {
     .then((response) => response.json())
     .then((data) => data);
 }
-
+// creation de l'ourson selectionné 
 function fillProduct(product) {
   document.getElementById("productCard").innerHTML = "";
 
@@ -47,7 +44,7 @@ function createProduct(product) {
   ).href = `produits.html?id=${product._id}`;
 
   //Display template
-
+//selectionde la couleur
  let colorChoiceSelect = document.getElementById("colorChoice");
 
   product.colors.forEach(function(color){ 
@@ -57,17 +54,15 @@ function createProduct(product) {
 
           colorChoiceSelect.add(newOption);
       let c = newOption
-      console.log(c)
+     
       colorChoiceSelect.addEventListener("click",(e)=>{
         colorProduct = e.target.value
-        console.log(colorProduct)    
+         
   })
       }) 
          
   
-// colorChoiceSelect.addEventListener("click",(e)=>{
-//   console.log(e.target.value)
-// })
+
 
 
   document.getElementById("productCard").appendChild(cloneElt);
@@ -82,9 +77,7 @@ function createProduct(product) {
   };
 }
 
-//function test(){
-// console.log("selectQuantity.value");
-//}
+
 let selectQuantity = document.getElementById("productQuantity");
 function quantity() {
  let q = parseInt(document.getElementById("productQuantity").value);
@@ -92,18 +85,8 @@ function quantity() {
 }
 
  
-//  function color() {
-//   c = colorChoiceSelect.value;
-//   console.log(c)
-//  }
 
-//local storage----const = document.getElementById ("addShop")
 
-//addShop.onclick = () =>{
-//localStorage.setItem("productName","nom.value")
-//};
-
-//let myteddy = "";
 //function added products in local storage
 
 function getQuantitySelected(){
@@ -152,12 +135,3 @@ function addBasket(product, quantity, selectedColor) {
 }
 myTeddy = "myBasket";
 
-//   bought= localStorage.getItem('myBasket',JSON.stringify(product));
-// console.log(bought);
-// //addShop.onclick = () =>{
-//   //localStorage.getItem("myPurchase", JSON.stringify(product))
-
-//}//
-
-// stockage des quantité
-//ajouter les couleur dynamiquemen

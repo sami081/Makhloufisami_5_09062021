@@ -438,9 +438,6 @@ h3 {
   text-align: center;
 }
 
-tr {
-  font-size: 0.8em;
-}
 tr li {
   text-align: center;
 }
@@ -507,6 +504,15 @@ tr .contenair {
   margin-top: 15px;
 }
 
+@media only screen and (min-width: 450px) {
+  th {
+    font-size: 1.8em;
+  }
+
+  tr li {
+    font-size: 1.4em;
+  }
+}
 @media only screen and (max-width: 450px) {
   .form-class {
     width: 100%;
@@ -633,7 +639,6 @@ tr .contenair {
 
 @media only screen and (max-width: 450px) {
   .product-image {
-    height: 100%;
     width: 50%;
     border-radius: 0.9em 0 0 0.9em;
   }

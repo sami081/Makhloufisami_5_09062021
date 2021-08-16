@@ -1,14 +1,17 @@
-// Methode called at startup
-;(async () => {
+//demarage
+(async () => {
   const products = await getProducts()
   fillProducts(products)
 })()
-
+//appel a l'api
 async function getProducts() {
   return fetch("http://localhost:3000/api/teddies")
     .then((response) => response.json())
     .then((data) => data);
+    
 }
+
+
 
 function fillProducts(products) {
   

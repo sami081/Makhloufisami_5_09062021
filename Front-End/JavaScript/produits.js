@@ -1,6 +1,6 @@
 let params = new URL(document.location).searchParams;
 const addShop = document.getElementById("addShop");
-const buy = document.getElementById("buy")
+const buy = document.getElementById("buy");
 let colorProduct;
 let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
@@ -9,7 +9,7 @@ const form = document.getElementById("form");
 // Methode called at startup
 (async () => {
   const product = await getProduct();
-  fillProduct(product);
+  createProduct(product);
 })();
 
 async function getProduct() {
@@ -17,14 +17,10 @@ async function getProduct() {
     .then((response) => response.json())
     .then((data) => data);
 }
-// creation de l'ourson selectionné 
-function fillProduct(product) {
-  document.getElementById("productCard").innerHTML = "";
-
-  createProduct(product);
-}
+// creation de l'ourson selectionné
 
 function createProduct(product) {
+  document.getElementById("productCard").innerHTML = "";
   //Get template
   const templateElt = document.getElementById("product");
 
@@ -44,79 +40,73 @@ function createProduct(product) {
   ).href = `produits.html?id=${product._id}`;
 
   //Display template
-//selectionde la couleur
- let colorChoiceSelect = document.getElementById("colorChoice");
 
-  product.colors.forEach(function(color){ 
-  
-          var newOption = document.createElement("option");
-          newOption.text = color.toString();//item.whateverProperty
-
-          colorChoiceSelect.add(newOption);
-      let c = newOption
-     
-      colorChoiceSelect.addEventListener("click",(e)=>{
-        colorProduct = e.target.value
-         
-  })
-      }) 
-         
-  
-
-
+  createSelectColors(product);
 
   document.getElementById("productCard").appendChild(cloneElt);
 
-  // comprendre ce bloc | code déclanché au clic sur ajouter au panier
   document.getElementById("addShop").onclick = (event) => {
     event.preventDefault(); // regardfe ça fait quoi
-    let selectQuantity = parseInt(document.getElementById("productQuantity").value); // voir pk ça ne se met pas à jour
-    let colorSelected =  document.getElementById("colorChoice").value;
+    let selectQuantity = parseInt(
+      document.getElementById("productQuantity").value
+    ); // voir pk ça ne se met pas à jour
+    let colorSelected = document.getElementById("colorChoice").value;
     addBasket(product, selectQuantity, colorSelected);
-   
   };
 }
 
-
 let selectQuantity = document.getElementById("productQuantity");
 function quantity() {
- let q = parseInt(document.getElementById("productQuantity").value);
+  let q = parseInt(document.getElementById("productQuantity").value);
   console.log(q);
 }
 
- 
+function createSelectColors(product) {
+  //selectionde la couleur
+  let colorChoiceSelect = document.getElementById("colorChoice");
+  product.colors.forEach(function (color) {
+    var newOption = document.createElement("option");
+    newOption.text = color.toString(); //item.whateverProperty
 
+    colorChoiceSelect.add(newOption);
+    let c = newOption;
+
+    colorChoiceSelect.addEventListener("click", (e) => {
+      colorProduct = e.target.value;
+    });
+  });
+}
 
 //function added products in local storage
 
-function getQuantitySelected(){
-  return parseInt(document.getElementById("productQuantity").value, );
+function getQuantitySelected() {
+  return parseInt(document.getElementById("productQuantity").value);
 }
 function addBasket(product, quantity, selectedColor) {
   if (cgv.checked) {
-    
     let basketFromLocalStorage = localStorage.getItem("myBasket");
-   
+
     product.quantity = quantity;
-    product.color = selectedColor.replace(/ /g,"_");
-    Reflect.deleteProperty(product, 'colors');
+    product.color = selectedColor.replace(/ /g, "_");
+    Reflect.deleteProperty(product, "colors");
     //si tableau let vide crée un tableau et injecter le produits
     if (!basketFromLocalStorage) {
       let newBasket = [];
       newBasket.push(product);
-      console.log("oui")
+      console.log("oui");
       localStorage.setItem("myBasket", JSON.stringify(newBasket));
-     
-      
 
       //sinon ajouter a la suite
     } else {
       let basket = JSON.parse(basketFromLocalStorage);
       var updateQuantity = false;
-      for (var i in basket){
-        if (basket[i]._id === product._id && basket[i].color === selectedColor) {
+      for (var i in basket) {
+        if (
+          basket[i]._id === product._id &&
+          basket[i].color === selectedColor
+        ) {
           updateQuantity = true;
-          basket[i].quantity =  quantity;
+          basket[i].quantity = quantity;
         }
       }
       if (!updateQuantity) {
@@ -125,13 +115,10 @@ function addBasket(product, quantity, selectedColor) {
       localStorage.setItem("myBasket", JSON.stringify(basket));
       console.log(basket[0].name);
     }
-    buy.innerHTML=`<div class="question"<p> Voulez-vous continuez vos achats?</p></div><div class=answer><a href="./index.html"> Oui</a> <a href="./panier.html"> Non </a></div>`;
-
+    buy.innerHTML = `<div class="question"<p> Voulez-vous continuez vos achats?</p></div><div class=answer><a href="./index.html"> Oui</a> <a href="./panier.html"> Non </a></div>`;
   } else {
     alert("Veuillez accepter les cgv");
-      
   }
-  console.log(colorProduct)
+  console.log(colorProduct);
 }
 myTeddy = "myBasket";
-

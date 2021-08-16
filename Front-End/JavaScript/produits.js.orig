@@ -5,11 +5,6 @@ let colorProduct;
 let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
-<<<<<<< HEAD
-const buy = document.getElementById("buy");
-
-=======
->>>>>>> develop
 
 // Methode called at startup
 (async () => {

@@ -83,6 +83,7 @@ function createSelectColors(product) {
 function getQuantitySelected() {
   return parseInt(document.getElementById("productQuantity").value);
 }
+//ajoute dans le localStorage
 function addBasket(product, quantity, selectedColor) {
   if (cgv.checked) {
     let basketFromLocalStorage = localStorage.getItem("myBasket");

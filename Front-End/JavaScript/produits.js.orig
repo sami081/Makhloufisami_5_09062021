@@ -5,6 +5,11 @@ let colorProduct;
 let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
+<<<<<<< HEAD
+const buy = document.getElementById("buy");
+
+=======
+>>>>>>> develop
 
 // Methode called at startup
 (async () => {
@@ -45,13 +50,27 @@ function createProduct(product) {
 
   document.getElementById("productCard").appendChild(cloneElt);
 
-  document.getElementById("addShop").onclick = (event) => {
-    event.preventDefault(); // regardfe ça fait quoi
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
+  document.getElementById("addShop").onclick = (event) => {
+<<<<<<< HEAD
+  
+    console.log('click sur boutton');
+    event.preventDefault();
+=======
+    event.preventDefault(); // regardfe ça fait quoi
+<<<<<<< HEAD
+>>>>>>> develop
+    let selectQuantity = parseInt(document.getElementById("productQuantity").value); // voir pk ça ne se met pas à jour
+    let colorSelected =  document.getElementById("colorChoice").value;
+=======
     let selectQuantity = parseInt(
       document.getElementById("productQuantity").value
     ); // voir pk ça ne se met pas à jour
     let colorSelected = document.getElementById("colorChoice").value;
+>>>>>>> develop
     addBasket(product, selectQuantity, colorSelected);
   };
 }
@@ -62,7 +81,6 @@ function quantity() {
   console.log(q);
 }
 
-//function color
 function createSelectColors(product) {
   //selectionde la couleur
   let colorChoiceSelect = document.getElementById("colorChoice");
@@ -70,6 +88,10 @@ function createSelectColors(product) {
     var newOption = document.createElement("option");
     newOption.text = color.toString(); //item.whateverProperty
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
     colorChoiceSelect.add(newOption);
     let c = newOption;
 
@@ -78,7 +100,9 @@ function createSelectColors(product) {
     });
   });
 }
+>>>>>>> develop
 
+>>>>>>> develop
 //function added products in local storage
 
 function getQuantitySelected() {
@@ -117,9 +141,16 @@ function addBasket(product, quantity, selectedColor) {
       localStorage.setItem("myBasket", JSON.stringify(basket));
       console.log(basket[0].name);
     }
+<<<<<<< HEAD
+<<<<<<< HEAD
+    buy.innerHTML = `<p>Continuez ses achats?<a  class="answer-yes" href ="./index.html">Oui</a> <a class= "answer-no" href = "./panier.html">non</a></p>`
+=======
+    buy.innerHTML=`<div class="question"<p> Voulez-vous continuez vos achats?</p></div><div class=answer><a href="./index.html"> Oui</a> <a href="./panier.html"> Non </a></div>`;
 
+>>>>>>> develop
+=======
     buy.innerHTML = `<div class="question"<p> Voulez-vous continuez vos achats?</p></div><div class=answer><a href="./index.html"> Oui</a> <a href="./panier.html"> Non </a></div>`;
-
+>>>>>>> develop
   } else {
     alert("Veuillez accepter les cgv");
   }

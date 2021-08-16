@@ -28,11 +28,7 @@ function calculBasket (){
   const prixTotalProduits = prixTotal.reduce(reducer,0)/100;
   console.log(prixTotalProduits)
   total.textContent = prixTotalProduits + " € "
-<<<<<<< HEAD
-  if (prixTotalProduits==0){text.innerHTML = `<p> Votre panier est vide<br><button class="return"> <a href="./index.html">Retour a l'accueil</a></button></p>`}
-=======
   if (prixTotalProduits==0){text.innerHTML = `<p> Votre panier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`}
->>>>>>> develop
   }
 
 //function ..?
@@ -82,7 +78,7 @@ for (i = 0; i < basketFromLocalStorage.length; i++) {
    console.log(priceProduct)
    total.textContent= totalW 
 }
-//modif quantité au panier (+1)ou (-1)
+function modifQuantity(){
 let more = document.querySelectorAll(".more");
 more.forEach(test => {
   let attributesArray =  test.getAttribute('attr.id').split('-');
@@ -107,7 +103,8 @@ less.forEach(test => {
     // window.location.reload();
     updateBasket(attributesArray[0],attributesArray[1]);
   }); 
-})
+})}
+modifQuantity()
 
 
 //suppression du panier
@@ -121,8 +118,6 @@ deleteBasket.addEventListener("click",()=>{
   window.location.reload()
   text.innerHTML = `<p> Votre panier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`
   ;}else{console.log("edt")}
-  
-
 })
 
 

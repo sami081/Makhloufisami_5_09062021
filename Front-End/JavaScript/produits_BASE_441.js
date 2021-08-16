@@ -6,12 +6,12 @@ let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
 
-// au demarage appel les 2 fonctions
+// Methode called at startup
 (async () => {
   const product = await getProduct();
   createProduct(product);
 })();
-// appel l'api
+
 async function getProduct() {
   return fetch(url)
     .then((response) => response.json())
@@ -47,7 +47,6 @@ function createProduct(product) {
 
   document.getElementById("addShop").onclick = (event) => {
     event.preventDefault(); // regardfe ça fait quoi
-
     let selectQuantity = parseInt(
       document.getElementById("productQuantity").value
     ); // voir pk ça ne se met pas à jour
@@ -61,7 +60,7 @@ function quantity() {
   let q = parseInt(document.getElementById("productQuantity").value);
   console.log(q);
 }
-//creer la liste de couleur en 
+//function color
 function createSelectColors(product) {
   //selectionde la couleur
   let colorChoiceSelect = document.getElementById("colorChoice");
@@ -116,9 +115,7 @@ function addBasket(product, quantity, selectedColor) {
       localStorage.setItem("myBasket", JSON.stringify(basket));
       console.log(basket[0].name);
     }
-
     buy.innerHTML = `<div class="question"<p> Voulez-vous continuez vos achats?</p></div><div class=answer><a href="./index.html"> Oui</a> <a href="./panier.html"> Non </a></div>`;
-
   } else {
     alert("Veuillez accepter les cgv");
   }

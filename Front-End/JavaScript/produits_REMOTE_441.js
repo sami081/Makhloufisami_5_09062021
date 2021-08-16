@@ -47,7 +47,6 @@ function createProduct(product) {
 
   document.getElementById("addShop").onclick = (event) => {
     event.preventDefault(); // regardfe ça fait quoi
-
     let selectQuantity = parseInt(
       document.getElementById("productQuantity").value
     ); // voir pk ça ne se met pas à jour
@@ -116,9 +115,7 @@ function addBasket(product, quantity, selectedColor) {
       localStorage.setItem("myBasket", JSON.stringify(basket));
       console.log(basket[0].name);
     }
-
     buy.innerHTML = `<div class="question"<p> Voulez-vous continuez vos achats?</p></div><div class=answer><a href="./index.html"> Oui</a> <a href="./panier.html"> Non </a></div>`;
-
   } else {
     alert("Veuillez accepter les cgv");
   }

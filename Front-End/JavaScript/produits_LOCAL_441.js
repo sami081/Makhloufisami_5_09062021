@@ -6,12 +6,12 @@ let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
 
-// au demarage appel les 2 fonctions
+// Methode called at startup
 (async () => {
   const product = await getProduct();
   createProduct(product);
 })();
-// appel l'api
+
 async function getProduct() {
   return fetch(url)
     .then((response) => response.json())
@@ -61,7 +61,8 @@ function quantity() {
   let q = parseInt(document.getElementById("productQuantity").value);
   console.log(q);
 }
-//creer la liste de couleur en 
+
+//function color
 function createSelectColors(product) {
   //selectionde la couleur
   let colorChoiceSelect = document.getElementById("colorChoice");

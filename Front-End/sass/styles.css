@@ -201,7 +201,7 @@ h1, h2, h3, p {
     height: 85%;
   }
   .products > .product-list > .card-product {
-    height: 350px;
+    height: 250px;
     width: 30%;
     background: lightgrey;
     border-radius: 1em 1em 1em 1em;

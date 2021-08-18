@@ -9,7 +9,7 @@ async function getProducts() {
     .then((response) => response.json())
     .then((data) => data)
     .catch(error => {
-      console.log(error);
+      
       alert('une erreur  avec le serveur est survenue');
     });
  ;

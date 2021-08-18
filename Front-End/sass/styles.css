@@ -1,4 +1,5 @@
 header {
+  padding: 10px;
   height: 10%;
   display: flex;
   justify-content: space-between;
@@ -563,6 +564,10 @@ tr .contenair {
 
 .bought {
   text-align: center;
+}
+
+.validation-commande {
+  margin-top: 20px;
 }
 
 .product-teddy {

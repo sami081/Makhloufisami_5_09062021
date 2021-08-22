@@ -20,13 +20,13 @@ function calculBasket (){
     let prixProduits =basketFromLocalStorage[m].price*basketFromLocalStorage[m].quantity
     
     prixTotal.push(prixProduits)
-    console.log(prixTotal)
+   
   }
   
   ///addtioner le tableau
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   const prixTotalProduits = prixTotal.reduce(reducer,0)/100;
-  console.log(prixTotalProduits)
+ 
   total.textContent = prixTotalProduits + " € "
   if (prixTotalProduits==0){text.innerHTML = `<p> Votre panier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`}
   }
@@ -75,10 +75,11 @@ for (i = 0; i < basketFromLocalStorage.length; i++) {
  
    deleteProduct.innerHTML+=`<li><button  class="dell size ">x</button></li>`
    totalW =(basketFromLocalStorage[i].price / 100) * basketFromLocalStorage[i].quantity
-   console.log(priceProduct)
+   
    total.textContent= totalW 
 }
 function modifQuantity(){
+  
 let more = document.querySelectorAll(".more");
 more.forEach(test => {
   let attributesArray =  test.getAttribute('attr.id').split('-');
@@ -117,7 +118,7 @@ deleteBasket.addEventListener("click",()=>{
   localStorage.setItem("myBasket",JSON.stringify(monPanier));
   window.location.reload()
   text.innerHTML = `<p> Votre panier est vide<br> <a href="./index.html">Retour a l'accueil</a></p>`
-  ;}else{console.log("edt")}
+  ;}
 })
 
 
@@ -125,8 +126,8 @@ deleteBasket.addEventListener("click",()=>{
 /// apparation du formulaire formulaire
 validation.addEventListener("click", ()=>{
 if(totalW > 0 ){
- form.classList.toggle("form-active")
-}else{console.log("edt")}
+ form.classList.add("form-active")
+}
 })
 
 
@@ -135,18 +136,18 @@ if(totalW > 0 ){
 ///supprimer l'article
 
 let dell = document.querySelectorAll(".dell")
-console.log(dell)
+
 for (d = 0; d < dell.length; d++){
   let idProduct = basketFromLocalStorage[d]._id;
   let colorForProduct = basketFromLocalStorage[d].color
   dell[d].addEventListener("click",(event)=>{
     event.preventDefault();
-    console.log(idProduct)
+    
 basketFromLocalStorage = basketFromLocalStorage.filter((el => el._id !== idProduct) && (el => el.color !== colorForProduct))
-console.log(basketFromLocalStorage)
+
 localStorage.setItem("myBasket",JSON.stringify(basketFromLocalStorage));
 window.location.reload()
-// if(monPanier== null){console.log("votre pannier est vide")}
+
   })
 }
 
@@ -166,23 +167,23 @@ const mail = document.getElementById("email")
 
   lastNames.addEventListener("input",(e)=>{
    lastName =e.target.value;
-   console.log(lastName)
+   
   })
   firstNames.addEventListener("input",(e)=>{
    firstName =e.target.value;
-    console.log(firstName)
+    
    })
    address.addEventListener("input",(e)=>{
     adress =e.target.value;
-     console.log(adress)
+    
     })
     town.addEventListener("input",(e)=>{
       city =e.target.value;
-       console.log(city)
+      
       })
       mail.addEventListener("input",(e)=>{
         email =e.target.value;
-         console.log(email)
+         
         })
 form.addEventListener("submit",(e)=>{
   e.preventDefault();
@@ -203,9 +204,9 @@ form.addEventListener("submit",(e)=>{
   
     localStorage.setItem("myBasket",JSON.stringify(monPanier));
     window.location.reload()
- window.open("./confirmation.html")}
+ window.open("./confirmation.html")} 
 
-    else{console.log("non")}
+    
   }
 )
 

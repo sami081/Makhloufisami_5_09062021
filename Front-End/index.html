@@ -11,7 +11,6 @@
       name="description"
       content="Orinoco est un site e-commerce à thème."
     />
-    <script src="JavaScript/index.js" defer></script>
   </head>
   <body>
     <!-- Header-->
@@ -28,19 +27,14 @@
       </div>
     </header>
     <!--End Header-->
+
+    <!--section products-->
     <section class="products">
       <h1 class="title-products">Les peluches d'Orinoco</h1>
       <p class="info-products">
         Laissez vous tenté avec nos peluches adorables
       </p>
-      <ul id="productsList" class="product-list">
-        <div class="bg-oniPink animate-pulse h-80"></div>
-        <div class="bg-oniPink animate-pulse h-80"></div>
-        <div class="bg-oniPink animate-pulse h-80"></div>
-        <div class="bg-oniPink animate-pulse h-80"></div>
-        <div class="bg-oniPink animate-pulse h-80"></div>
-        <div class="bg-oniPink animate-pulse h-80"></div>
-      </ul>
+      <ul id="productsList" class="product-list"></ul>
 
       <template id="product">
         <li class="card-product">
@@ -55,9 +49,9 @@
           </a>
         </li>
       </template>
-
-      
     </section>
+    <!--end section products-->
+    <!--footer-->
     <footer>
       <div class="social">
         <a
@@ -114,5 +108,7 @@
         </li>
       </ul>
     </footer>
+    <!--end footer-->
+    <script src="JavaScript/index.js"></script>
   </body>
 </html>

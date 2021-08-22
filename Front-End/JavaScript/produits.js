@@ -59,7 +59,7 @@ function createProduct(product) {
 let selectQuantity = document.getElementById("productQuantity");
 function quantity() {
   let q = parseInt(document.getElementById("productQuantity").value);
-  console.log(q);
+ 
 }
 //creer la liste de couleur en 
 function createSelectColors(product) {
@@ -95,7 +95,7 @@ function addBasket(product, quantity, selectedColor) {
     if (!basketFromLocalStorage) {
       let newBasket = [];
       newBasket.push(product);
-      console.log("oui");
+      
       localStorage.setItem("myBasket", JSON.stringify(newBasket));
 
       //sinon ajouter a la suite
@@ -115,7 +115,7 @@ function addBasket(product, quantity, selectedColor) {
         basket.push(product);
       }
       localStorage.setItem("myBasket", JSON.stringify(basket));
-      console.log(basket[0].name);
+    
     }
 
     buy.innerHTML = `<div class="question"<p> Voulez-vous continuez vos achats?</p></div><div class=answer><a href="./index.html"> Oui</a> <a href="./panier.html"> Non </a></div>`;
@@ -123,6 +123,6 @@ function addBasket(product, quantity, selectedColor) {
   } else {
     alert("Veuillez accepter les cgv");
   }
-  console.log(colorProduct);
+  
 }
 myTeddy = "myBasket";

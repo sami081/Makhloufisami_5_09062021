@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produits</title>
-  <link rel="stylesheet" href="sass/styles.css">
-  <meta name="title" content="Peluches- Orinoco" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produits</title>
+    <link rel="stylesheet" href="sass/styles.css" />
+    <meta name="title" content="Peluches- Orinoco" />
     <meta
       name="description"
       content="Personnalisez votre peluche avec orinoco."
     />
-  <script src="JavaScript/produits.js" defer></script>
-</head>
-<body>
-  <header>
-    <div class="logo-picture">
-      <img
-        src="ressources/images/logo.png"
-        class="img-logo"
-        alt="logo-orinco"
-      />
-    </div>
-    <div class="link-accueil">
-      <a href="index.html">Accueil</a>
-    </div>
-    <div class="shopping-cart">
-      <a href="panier.html">Panier</a>
-    </div>
-  </header>
-  <section class="product-teddy">
-    <h1  id="h1" class="title-products">Les peluches d'Orinoco</h1>
-      <p class="info-products">
-        Personnalisez votre peluches
-      </p>
+    
+  </head>
+  <body>
+    <!--header-->
+    <header>
+      <div class="logo-picture">
+        <img
+          src="ressources/images/logo.png"
+          class="img-logo"
+          alt="logo-orinco"
+        />
+      </div>
+      <div class="link-accueil">
+        <a href="index.html">Accueil</a>
+      </div>
+      <div class="shopping-cart">
+        <a href="panier.html">Panier</a>
+      </div>
+    </header>
+    <!--end header-->
+    <!--section product teddy-->
+    <section class="product-teddy">
+      <h1 id="h1" class="title-products">Les peluches d'Orinoco</h1>
+      <p class="info-products">Personnalisez votre peluches</p>
 
       <div id="productCard" class="product-list">
         <div class="bg-oniPink animate-pulse h-80"></div>
@@ -50,18 +51,31 @@
               <span id="productPrice" class="price"></span>
             </div>
           </div>
-        </template>
-          <div class="shop">
-            <form id="form" class="form-class">
-              <div class="contenair-color">
-              <label for="colorChoice" class="color">Votre couleur : </label>
-            <select name="colorchoice"  value="Selectionner votre Couleur"id="colorChoice"  class="color-choice" onchange="color()">
-            </select>
-            </div>
-            <div class="contenair-quantity">
-            <label for="productQuantity" class="quantity-label">Quantité : </label>
-            <select name="quantchoice" id="productQuantity"  class="quantity" onchange="quantity()">
+        </div>
+      </template>
+
+      <div class="shop">
+        <form id="form" class="form-class">
+          <div class="contenair-color">
+            <label for="colorChoice" class="color">Votre couleur : </label>
+            <select
+              name="colorchoice"
               
+              id="colorChoice"
+              class="color-choice"
+              onchange="color()"
+            ></select>
+          </div>
+          <div class="contenair-quantity">
+            <label for="productQuantity" class="quantity-label"
+              >Quantité :
+            </label>
+            <select
+              name="quantchoice"
+              id="productQuantity"
+              class="quantity"
+              onchange="quantity()"
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -72,24 +86,24 @@
               <option value="8">8</option>
               <option value="9">9</option>
             </select>
-            </div>
-            <div class="contenair-check">
-           
-             <label for="cgv">Accepter les CGV :</label>
-             <input type="checkbox" id="cgv">
-             </div>
-            <input type="submit" value="Ajouter au pannier" id="addShop" class="shop-button animations-button">
-         
-            </form>
           </div>
-        </div>
-        <div id ="buy" class="bought">
+          <div class="contenair-check">
+            <label for="cgv">Accepter les CGV :</label>
+            <input type="checkbox" id="cgv" />
           </div>
-         </section>
-          
-   
-      
-    </div>
+          <input
+            type="submit"
+            value="Ajouter au pannier"
+            id="addShop"
+            class="shop-button animations-button"
+          />
+        </form>
+      </div>
+
+      <div id="buy" class="bought"></div>
+    </section>
+    <!--end section product teddy-->
+<!--footer-->
     <footer>
       <div class="social">
         <a
@@ -146,7 +160,7 @@
         </li>
       </ul>
     </footer>
-
-  
-</body>
+    <!--end footer-->
+    <script src="JavaScript/produits.js"></script>
+  </body>
 </html>

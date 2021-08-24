@@ -1,9 +1,10 @@
-//demarage appel les 2 fonctions
+//start call the 2 functions
 (async () => {
   const products = await getProducts()
   fillProducts(products)
 })()
-//appel a l'api
+//end start call the 2 functions
+//call l'api
 async function getProducts() {
   return fetch("http://localhost:3000/api/teddies")
     .then((response) => response.json())
@@ -14,10 +15,12 @@ async function getProducts() {
     });
  ;
 }
+//end call api
 
 
-//permet pour chaque produits de crée un element
+//allows for each product to create an element
 function fillProducts(products) {
+  
   
   document.getElementById('productsList').innerHTML = ''
 
@@ -25,8 +28,8 @@ function fillProducts(products) {
     createProduct(element);
     
   });
-}
-//affiche chaque element crée
+}//end allows for each product to create an element
+//displays each element created
 function createProduct(product) {
    //Get template
   const templateElt = document.getElementById('product')
@@ -44,6 +47,7 @@ function createProduct(product) {
    //Display template
   document.getElementById('productsList').appendChild(cloneElt)
 }
+//end displays each element created
 
 
 

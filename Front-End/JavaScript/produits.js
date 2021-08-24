@@ -6,18 +6,20 @@ let id = params.get("id");
 let url = "http://localhost:3000/api/teddies/" + id;
 const form = document.getElementById("form");
 
-// au demarage appel les 2 fonctions
+// start call the 2 functions
 (async () => {
   const product = await getProduct();
   createProduct(product);
-})();
-// appel l'api
+})()
+//end start call the 2 functions;
+// call l'api
 async function getProduct() {
   return fetch(url)
     .then((response) => response.json())
     .then((data) => data);
 }
-// creation de l'ourson selectionné
+//end call api
+// creation of the selected teddy bear
 
 function createProduct(product) {
   document.getElementById("productCard").innerHTML = "";
@@ -54,13 +56,14 @@ function createProduct(product) {
     addBasket(product, selectQuantity, colorSelected);
   };
 }
+//end creation of the selected teddy bear
 
 let selectQuantity = document.getElementById("productQuantity");
 function quantity() {
   let q = parseInt(document.getElementById("productQuantity").value);
  
 }
-//creer la liste de couleur en 
+//create the color list
 function createSelectColors(product) {
   //selectionde la couleur
   let colorChoiceSelect = document.getElementById("colorChoice");
@@ -76,7 +79,7 @@ function createSelectColors(product) {
     });
   });
 }
-
+//end create the color list
 //function added products in local storage
 
 function getQuantitySelected() {

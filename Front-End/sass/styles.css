@@ -20,6 +20,36 @@ header > .link-accueil {
   font-size: 1.3em;
 }
 
+.load-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  z-index: 5;
+  background-image: linear-gradient(#FF79DA 40%, #9356DC 60%);
+  width: 100%;
+  height: 100%;
+  animation: onandoff 3s linear forwards;
+  pointer-events: none;
+}
+.load-body .title-load {
+  font-family: Shrikhand, "cursive";
+  font-size: xx-large;
+  padding-bottom: 10px;
+}
+.load-body .load {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  border: 4px solid #181818;
+  animation: bloc 3s;
+  -moz-animation: bloc 3s;
+  -webkit-animation: bloc 3s;
+  -o-animation: bloc 3s;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -768,6 +798,21 @@ tr .contenair {
 .animations-button {
   transition: all 0.5s ease-in-out;
   cursor: pointer;
+}
+
+@keyframes bloc {
+  0% {
+    margin-left: -200px;
+    border-radius: 100%;
+    transform: rotate(360deg);
+    transition: all 2s ease-in-out;
+  }
+  100% {
+    margin-left: 500px;
+    border-radius: 100%;
+    transform: rotate(360deg);
+    transition: all 2s ease-in-out;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

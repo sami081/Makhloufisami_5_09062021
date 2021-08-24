@@ -185,6 +185,7 @@ const mail = document.getElementById("email")
         email =e.target.value;
          
         })
+        
 form.addEventListener("submit",(e)=>{
   e.preventDefault();
   if(lastName&& firstName&& email&& adress&& city){

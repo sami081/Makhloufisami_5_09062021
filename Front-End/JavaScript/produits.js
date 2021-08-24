@@ -28,7 +28,7 @@ function createProduct(product) {
 
   // Clone template
   const cloneElt = document.importNode(templateElt.content, true);
-
+console.log(url)
   //Hydrate template
   cloneElt.getElementById("productImage").src = product.imageUrl;
   cloneElt.getElementById("productName").textContent = product.name;
